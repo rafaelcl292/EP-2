@@ -1,4 +1,3 @@
-# cria baralho
 def cria_baralho():
     valores = [str(a) for a in range(2, 11)] + ['Q', 'J', 'K', 'A']
     naipes = ['♠', '♥', '♣', '♦']

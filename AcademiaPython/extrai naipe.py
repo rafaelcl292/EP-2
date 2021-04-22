@@ -1,2 +1,2 @@
 def extrai_naipe(naipe):
-    return naipe [-1]
+    return naipe[-1]
