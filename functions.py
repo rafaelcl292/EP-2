@@ -1,3 +1,5 @@
+import random
+
 def cria_baralho():
     valores = ['A'] + [str(a) for a in range(2, 11)] + ['J', 'Q', 'K']
     naipes = ['♠', '♥', '♣', '♦']
@@ -5,6 +7,7 @@ def cria_baralho():
     for valor in valores:
         for naipe in naipes:
             baralho.append(valor + naipe)
+    random.shuffle(baralho)
     return baralho
 
 
@@ -61,3 +64,7 @@ def possui_movimentos_possiveis(baralho):
             possui = True
         i += 1
     return possui
+
+
+def imprime_baralho(baralho):
+    pass
