@@ -1,5 +1,4 @@
 def lista_movimentos_possiveis(baralho, i):
-    mov_poss = []
     if i != 0:
         if i <= 2:
             if baralho[i][-1] == baralho[i-1][-1] or baralho[i][:-1] == baralho[i-1][:-1]:
