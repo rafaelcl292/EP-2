@@ -1,5 +1,4 @@
 def empilha(baralho, origem, destino):
-    carta_seleciona = baralho[origem]
-    baralho[destino] = carta_seleciona
+    baralho[destino] = baralho[origem]
     del(baralho[origem])
     return baralho
