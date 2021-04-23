@@ -15,6 +15,7 @@ def naipe(carta):
 def valor(carta):
     return carta[:-1]
 
+
 def lista_movimentos_possiveis(baralho, i):
     if i != 0:
         if i <= 2:
@@ -29,12 +30,14 @@ def lista_movimentos_possiveis(baralho, i):
                 return [3]
     return []
 
+
 def empilha(baralho, origem, destino):
     carta_seleciona = baralho[origem]
     baralho[destino] = carta_seleciona
     del(baralho[origem])
     return baralho
-    
+
+
 def lista_movimentos_possiveis(baralho, i):
     if i != 0:
         if i <= 2:
