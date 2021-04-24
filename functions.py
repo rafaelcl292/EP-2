@@ -1,7 +1,7 @@
 import random
 
 def cria_baralho():
-    valores = ['A'] + [str(a) for a in range(2, 11)] + ['J', 'Q', 'K']
+    valores = [str(a) for a in range(2, 11)] + ['J', 'Q', 'K', 'A']
     naipes = ['♠', '♥', '♣', '♦']
     baralho = []
     for valor in valores:
@@ -67,4 +67,12 @@ def possui_movimentos_possiveis(baralho):
 
 
 def imprime_baralho(baralho):
-    pass
+    for i, carta in enumerate(baralho):
+        i += 1
+        if i < 10:
+            i = f' {i}'
+        if len(valor(carta)) == 2:
+            print(f'{i}. 10{naipe(carta)}')
+        else:
+            print(f'{i}.  {carta}')
+    return

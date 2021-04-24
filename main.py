@@ -20,3 +20,6 @@ input(
     "\n"
     "Aperte [Enter] para iniciar o jogo..."
 )
+
+baralho = cria_baralho()
+imprime_baralho(baralho)
