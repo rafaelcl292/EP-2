@@ -1,4 +1,8 @@
 import random
+import colorama
+from colorama import Fore, Back
+colorama.init(autoreset=True)
+
 
 def cria_baralho():
     valores = [str(a) for a in range(2, 11)] + ['J', 'Q', 'K', 'A']
@@ -68,11 +72,15 @@ def possui_movimentos_possiveis(baralho):
 
 def imprime_baralho(baralho):
     for i, carta in enumerate(baralho):
+        if naipe(carta) == '♣' or naipe(carta) == '♠':
+            color = Fore.BLACK
+        else:
+            color = Fore.RED
         i += 1
         if i < 10:
             i = f' {i}'
         if len(valor(carta)) == 2:
-            print(f'{i}. 10{naipe(carta)}')
+            print(f'\n{i}. {Back.WHITE}{color} 10 {naipe(carta)}  ')
         else:
-            print(f'{i}.  {carta}')
+            print(f'\n{i}. {Back.WHITE}{color}  {valor(carta)} {naipe(carta)}  ')
     return
