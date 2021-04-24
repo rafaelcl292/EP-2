@@ -1,4 +1,5 @@
 from functions import *
+from time import sleep
 
 input(
     "\nPaciência Acordeão\n"
@@ -22,4 +23,29 @@ input(
 )
 
 baralho = cria_baralho()
-imprime_baralho(baralho)
+
+while possui_movimentos_possiveis(baralho):
+    print('\nO estado atual do baralho é: ')
+    imprime_baralho(baralho)
+    mov = int(input(f'\nEscolha uma carta(digite um número entre 1 e {len(baralho)}): ')) - 1
+    movimentos = lista_movimentos_possiveis(baralho, mov)
+    if movimentos == []:
+        print(f'A carta {carta_formatada(baralho, mov)} não pode ser movida.')
+    elif movimentos == [1]:
+        empilha(baralho, mov, mov - 1)
+    elif movimentos == [3]:
+        empilha(baralho, mov, mov - 3)
+    else:
+        print(
+            f'Sobre qual carta você quer empilhar o {carta_formatada(baralho, mov)} ?'
+            f'\n1. {carta_formatada(baralho, mov - 1)}\n'
+            f'\n2. {carta_formatada(baralho, mov - 3)}\n'
+        )
+        perg = input(
+            f'Digite o número de sua escolha (1 ou 2): '
+        )
+        if perg == '1':
+            empilha(baralho, mov, mov - 1)
+        elif perg == '2':
+            empilha(baralho, mov, mov - 3)
+    sleep(1.5)

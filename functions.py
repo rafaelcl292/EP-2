@@ -1,6 +1,6 @@
 import random
 import colorama
-from colorama import Fore, Back
+from colorama import Fore, Back, Style
 colorama.init(autoreset=True)
 
 
@@ -39,8 +39,7 @@ def lista_movimentos_possiveis(baralho, i):
 
 
 def empilha(baralho, origem, destino):
-    carta_seleciona = baralho[origem]
-    baralho[destino] = carta_seleciona
+    baralho[destino] = baralho[origem]
     del(baralho[origem])
     return baralho
 
@@ -80,7 +79,18 @@ def imprime_baralho(baralho):
         if i < 10:
             i = f' {i}'
         if len(valor(carta)) == 2:
-            print(f'\n{i}. {Back.WHITE}{color} 10 {naipe(carta)}  ')
+            print(f'\n{i}. {Back.WHITE}{color} {valor(carta)} {naipe(carta)}  ')
         else:
             print(f'\n{i}. {Back.WHITE}{color}  {valor(carta)} {naipe(carta)}  ')
     return
+
+
+def carta_formatada(baralho, i):
+    carta = baralho[i]
+    if naipe(carta) == '♣' or naipe(carta) == '♠':
+        color = Fore.BLACK
+    else:
+        color = Fore.RED
+    if len(valor(carta)) == 2:
+        return f'{Back.WHITE}{color} {valor(carta)} {naipe(carta)}  {Style.RESET_ALL}'
+    return f'{Back.WHITE}{color}  {valor(carta)} {naipe(carta)}  {Style.RESET_ALL}'
