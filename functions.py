@@ -85,6 +85,11 @@ def imprime_baralho(baralho):
     return
 
 
+def imprime_baralho2():
+    # Reescrever a função imprime_baralho para uma melhor visialização das cartas
+    pass
+
+
 def carta_formatada(baralho, i):
     carta = baralho[i]
     if naipe(carta) == '♣' or naipe(carta) == '♠':
