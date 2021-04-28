@@ -158,11 +158,17 @@ def jogar2(baralho):
                     f'\n1. {carta_formatada(baralho, mov - 1)}\n'
                     f'\n2. {carta_formatada(baralho, mov - 3)}\n'
                 )
-                perg = input(
-                    f'Digite o número de sua escolha (1 ou 2): '
-                )
-                if perg == '1':
-                    empilha(baralho, mov, mov - 1)
-                elif perg == '2':
-                    empilha(baralho, mov, mov - 3)
+                i = True
+                while i:
+                    perg = input(
+                        f'Digite o número de sua escolha (1 ou 2): '
+                    )
+                    if perg == '1':
+                        empilha(baralho, mov, mov - 1)
+                        i = False
+                    elif perg == '2':
+                        empilha(baralho, mov, mov - 3)
+                        i = False
+                    else:
+                        print("\nNúmero inválido")
         sleep(1.5)
