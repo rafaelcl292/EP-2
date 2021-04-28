@@ -23,7 +23,7 @@ input(
 
 while True:
     baralho = cria_baralho()
-    jogar2(baralho)
+    jogar(baralho)
     if len(baralho) == 1:
         print("\nParabéns você venceu!")
     else:
