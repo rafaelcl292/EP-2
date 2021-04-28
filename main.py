@@ -21,5 +21,12 @@ input(
     "Aperte [Enter] para iniciar o jogo..."
 )
 
-baralho = cria_baralho()
-jogar(baralho)
+while True:
+    baralho = cria_baralho()[:5]
+    jogar2(baralho)
+    if len(baralho) == 1:
+        print("\nParabéns você venceu!")
+    else:
+        print("\nVocê perdeu :(\nMais sorte da próxima vez!")
+    if input("Você deseja jogar novamente?\n(S/N): ") != 'S':
+        break

@@ -1,5 +1,6 @@
 import random
 import colorama
+# from goto import goto, label
 from time import sleep
 from colorama import Fore, Back, Style
 colorama.init(autoreset=True)
@@ -127,4 +128,41 @@ def jogar(baralho):
                 empilha(baralho, mov, mov - 1)
             elif perg == '2':
                 empilha(baralho, mov, mov - 3)
+        sleep(1.5)
+
+
+def jogar2(baralho):
+    while possui_movimentos_possiveis(baralho):
+        print('\nO estado atual do baralho é: ')
+        imprime_baralho(baralho)
+        mov = input(f'\nEscolha uma carta(digite um número entre 1 e {len(baralho)}): ')
+        if mov.startswith("D") or mov.startswith("d"):
+            break
+        if not mov.isdigit():
+            print(f"\nDigite um número entre 1 e {len(baralho)}\n")
+        elif int(mov) > len(baralho):
+            print("\nMovimento impossivel")
+            print(f"Digite um número entre 1 e {len(baralho)}\n")
+        else:
+            mov = int(mov) - 1
+            movimentos = lista_movimentos_possiveis(baralho, mov)
+            if movimentos == []:
+                print(f'A carta {carta_formatada(baralho, mov)} não pode ser movida.')
+            elif movimentos == [1]:
+                empilha(baralho, mov, mov - 1)
+            elif movimentos == [3]:
+                empilha(baralho, mov, mov - 3)
+            else:
+                print(
+                    f'Sobre qual carta você quer empilhar o {carta_formatada(baralho, mov)} ?'
+                    f'\n1. {carta_formatada(baralho, mov - 1)}\n'
+                    f'\n2. {carta_formatada(baralho, mov - 3)}\n'
+                )
+                perg = input(
+                    f'Digite o número de sua escolha (1 ou 2): '
+                )
+                if perg == '1':
+                    empilha(baralho, mov, mov - 1)
+                elif perg == '2':
+                    empilha(baralho, mov, mov - 3)
         sleep(1.5)
