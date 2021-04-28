@@ -22,7 +22,7 @@ input(
 )
 
 while True:
-    baralho = cria_baralho()[:5]
+    baralho = cria_baralho()
     jogar2(baralho)
     if len(baralho) == 1:
         print("\nParabéns você venceu!")
